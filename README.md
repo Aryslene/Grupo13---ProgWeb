@@ -11,4 +11,4 @@ Tecnologias:
 - Banco de Dados: Postgres
 - Codificação: PHP
 
-Oraganização dos diretórios:
+Organização dos diretórios:
