@@ -10,5 +10,6 @@ Integrantes:
 Tecnologias:
 - Banco de Dados: Postgres
 - Codificação: PHP
+- Bootstrap 4
 
 Organização dos diretórios:
