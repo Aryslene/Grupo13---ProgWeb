@@ -12,6 +12,8 @@
 
 
 <html>
+  <meta charset="utf-8" />
+  <title>ControlHotel</title>
   <head>
 
   <link href="login.css" rel="stylesheet" id="bootstrap-css">
