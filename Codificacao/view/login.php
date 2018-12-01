@@ -53,7 +53,9 @@
     </div>
 
 </div></div>
-
+            <div class="footer-copyright">© 2018 Copyright:
+                <a class="linkPoderosas" href="https://mdbootstrap.com/education/bootstrap/"> meninassuperpoderosas.com</a>
+            </div>
 
 </body>
 </html>
