@@ -2,9 +2,9 @@
 Site para busca de hotel
 
 Integrantes:
-- Aryslene Santos Bitencourt: codificação e testes 
-- Walquiria Lidiane Lopes: responsável pela documentação e interface com o usuário
-- Bruna: codificação e gerenciamento
+- Aryslene Santos Bitencourt: responsável pela documentação e interface com o usuário
+- Walquiria Lidiane Lopes: codificação e testes
+- Bruna: codificação e gerenciamento de tarefas
 - Danielle: codificaçao e analise 
 
 Tecnologias:
