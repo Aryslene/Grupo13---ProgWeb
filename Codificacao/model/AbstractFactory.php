@@ -11,7 +11,47 @@
 Classe abstrata que define o padrão das fábricas
 */
 abstract class AbstractFactory{
-    abstract public function reservar();
+    protected $db;
+    /*protected $senhadb;
+    protected $servidor;
+    protected $usariodb;*/
+
+    public function __construct() {
+        try {
+            $this->db = new PDO("sqlite:model/bd/ControlHotel.sqlite");
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            echo $exception->getMessage();
+        } catch (Exception $exception) {
+            echo $exception->getMessage();
+        }
+    /*  try {
+            $usariodb = "root";
+            $senhadb = "";
+            $servidor = "localhost";
+            $db = "controlhotel";
+            $conexao = mysqli_connect($servidor,$usariodb,$senhadb);   
+        } catch (Exception $exception) {
+            echo $exception->getMessage();
+        }*/
+
+    }
+    abstract public function reservarQuarto();
+    abstract public function listarClientes(): array;
+    abstract public function salvarCliente($obj);
+    abstract public function efetuarLogin($email,$senha): array;
+    /*abstract public function buscarIdCliente($param): array;*/
+    
+    protected function queryRowsToListOfObjects(PDOStatement $result, $nameObject): array {
+        $list = array();
+        $r = $result->fetchAll(PDO::FETCH_NUM);
+        foreach ($r as $row) {
+            //unset($row[0]); essa linha foi comentada pois ignorava o id do objeto
+            $ref = new ReflectionClass($nameObject);
+            $list[] = $ref->newInstanceArgs($row);
+        }
+        return $list;
+    }
 }
 
 ?>
