@@ -1,0 +1,46 @@
+CREATE TABLE Cliente(
+  idCliente INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+  nome varchar(60) NOT NULL,
+  genero varchar(20),
+  telefone char(14)NOT NULL,
+  dataNasc date NOT NULL,
+  pais varchar(20) NOT NULL,
+  estado varchar(30) NOT NULL,
+  cidade varchar(30) NOT NULL,
+  endereco varchar (40),
+  email varchar(40) NOT NULL,
+  senha varchar(8) NOT NULL
+)
+
+CREATE TABLE Quarto(
+  idQuarto INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+  tipoQuarto varchar(20) NOT NULL,
+  valorDiaria double NOT NULL,
+  qtdOcupacao int NOT NULL,
+  taxaCancelamento double
+)
+
+CREATE TABLE Reserva(
+  idReserva INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+  dataEntrada date NOT NULL,
+  dataSaida date NOT NULL,
+  codCliente int,
+  codQuarto int,
+  FOREIGN KEY(codCliente) REFERENCES Cliente (idCliente) on delete restrict on update cascade, 
+  FOREIGN KEY(codQuarto) REFERENCES Quarto (idQuarto) on delete restrict on update cascade
+)
+
+INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
+VALUES('suitedupla',130.0,2,10.0);
+
+INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
+VALUES('suitecasal',80.0,1,5.0);
+
+INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
+VALUES('suiteluxo',220.0,1,20.0);
+
+INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
+VALUES('suitefamilia',100.0,3,15.0);
+
+INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
+VALUES('solteiroduplo',85.0,2,5.0)

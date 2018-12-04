@@ -13,14 +13,16 @@
 class Reserva{
     private $dataEntrada;
     private $dataSaida;
-    private $valorReserva;
     private $id;
+    private $tipoQuarto;
+    private $idCliente;
     
-    public function __construct(string $id="",date $dataEntrada,date $dataSaida,float $valorReserva){
+    public function __construct(string $id="",date $dataEntrada,
+    date $dataSaida, string $tipoQuarto){
         $this->id = $id;
         $this->dataEntrada = $dataEntrada;
         $this->dataSaida = $dataSaida;
-        $this->valorReserva = $valorReserva;
+        $this->tipoQuarto = $tipoQuarto;
     }
 
     /*Getters e Setters*/
@@ -44,12 +46,12 @@ class Reserva{
         $this->dataSaida= $dataSaida;
     }
 
-    public function getValorReserva():float{
-        return $this->valorReserva;
+    public function getTipoQuarto():string{
+        return $this->tipoQuarto;
     }
         
-    public function setValorReserva(float $valorReserva){
-       $this->valorReserva = $valorReserva;
+    public function setTipoQuarto(string $tipoQuarto){
+       $this->tipoQuarto = $tipoQuarto;
     }
 }
 ?>
