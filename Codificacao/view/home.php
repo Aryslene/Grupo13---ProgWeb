@@ -1,35 +1,7 @@
-<!DOCTYPE html>
-<!--
-*Esse documento faz parte de uma aplicação desenvolvida na matéria de ProgWeb-2018/2 na FACOM, 
-*disciplina lecionada pela Profª Jane Eleutério
-*Seu uso é permitido para fins acadêmicos, todavia mantendo a referência de autoria.
-*@author Aryslene S. Bitencourt - Acadêmica de Engenharia de Software
-*@author Bruna Luzia A. Rodrigues - Acadêmica de Engenharia de Software
-*@author Danielle L. M. G. Benites - Acadêmica de Engenharia de Software
-*@author Walquiria L. Lopes - Acadêmica de Engenharia de Software
-*Framework Bootstrap 4
-
-Página principal do hotel
--->
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8" />
-        <title>ControlHotel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="view/css/style.css" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    </head>
-
-    <body>
-        <!--Título da página e uma explicação -->
-        <div class="jumbotron text-center" style="margin-bottom:0">
-            <h1>ControlHotel</h1>
-            <p>Hotel na cidade de Campo Grande - Mato Grosso do Sul</p> 
-        </div>
-
+<?php
+/*Função utilizada para chamar o cabeçalho da página de aviso*/
+require("header.php");
+?>
         <!-- Carrossel de fotos do hotel-->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -80,12 +52,12 @@ Página principal do hotel
                             <li class="list-group-item">Café da manhã incluso</li>
                             <li class="list-group-item">Ar-Condicionado</li>
                         </ul>
-                        <a href="?funcao=reservar" class="btn btn-outline-primary mt-3">Reservar</a> 
+                        <a href="?funcao=telaReserva&tipoQuarto=1" class="btn btn-outline-primary mt-3">Reservar</a> 
                     </div>
                 </div>
                 <!--Tipo 2 - Suíte Dupla-->
                 <div class="card mr-4" style="width: 16rem;">
-                    <img class="card-img-top" src="view/img/icons/suite-casal.png" alt="cama-casal">
+                    <img class="card-img-top" src="view/img/icons/suite-dupla.png" alt="cama-casal">
                     <div class="card-body">
                         <h5 class="card-title">Suíte Dupla</h5>
                         <ul class="list-group list-group-flush">
@@ -93,12 +65,12 @@ Página principal do hotel
                             <li class="list-group-item">Café da manhã incluso</li>
                             <li class="list-group-item">Ar-Condicionado</li>
                         </ul>
-                        <a href="?funcao=reservar" class="btn btn-outline-primary mt-3">Reservar</a> 
+                        <a href="?funcao=telaReserva&tipoQuarto=2" class="btn btn-outline-primary mt-3">Reservar</a> 
                     </div>
                 </div>
                 <!--Tipo 3 - Suíte de Luxo-->
                 <div class="card mr-4" style="width: 16rem;">
-                    <img class="card-img-top" src="view/img/icons/suite-casal.png" alt="cama-casal">
+                    <img class="card-img-top" src="view/img/icons/suite-luxo.png" alt="cama-casal">
                     <div class="card-body">
                         <h5 class="card-title">Suíte Luxo</h5>
                         <ul class="list-group list-group-flush">
@@ -106,12 +78,12 @@ Página principal do hotel
                             <li class="list-group-item">Ar-Condicionado e banheira</li>
                             <li class="list-group-item">Café da manhã incluso</li>
                         </ul>
-                        <a href="?funcao=reservar" class="btn btn-outline-primary mt-3">Reservar</a> 
+                        <a href="?funcao=telaReserva&tipoQuarto=3" class="btn btn-outline-primary mt-3">Reservar</a> 
                     </div>
                 </div>
                 <!--Tipo 4 - Suíte de Família-->
                 <div class="card" style="width: 16rem;">
-                    <img class="card-img-top" src="view/img/icons/suite-casal.png" alt="cama-casal">
+                    <img class="card-img-top" src="view/img/icons/suite-familia.png" alt="cama-casal">
                     <div class="card-body">
                         <h5 class="card-title">Suíte Família</h5>
                         <ul class="list-group list-group-flush">
@@ -119,31 +91,76 @@ Página principal do hotel
                             <li class="list-group-item">Café da manhã incluso</li>
                             <li class="list-group-item">Ar-Condicionado</li>
                         </ul>
-                        <a href="?funcao=reservar" class="btn btn-outline-primary mt-3">Reservar</a> 
+                        <a href="?funcao=telaReserva&tipoQuarto=4" class="btn btn-outline-primary mt-3">Reservar</a> 
                     </div>
                 </div>
             </div>
             <!--Fim dos tipos de quartos para reservar-->
 
             <!--Detalhes sobre o hotel-->
-            <div class="row">
+            <div class="row justify-content-center mb-5 mt-5">
+                <h3>Benefícios do ControlHotel</h3>
+            </div>
+            <!--Informações sobre o hotel-->
+            <div class="row ml-5">
                 <div class="col-13 ml-4 mb-5">
-                    <h3>O ControlHotel oferece:</h3>
-                    <p><img src="view/img/icons/icon-seguro.png" alt="icon-seguro">Segurança</p>
-                    <p><img src="view/img/icons/icon-car.png" alt="icon-car"> Estacionamento exclusivo para os hóspedes</p>
-                    <p><img src="view/img/icons/icon-wifi.png" alt="icon-wifi"> Wi-Fi em todo o hotel</p>
-                    <p><img src="view/img/icons/icon-sun.png" alt="icon-sun"> Área de piscina</p>
-                    <p><img src="view/img/icons/icon-child.png" alt="icon-child"> Playground para crianças</p>
-                    <p><img src="view/img/icons/icon-animals.png" alt="icon-animals"> Permite entrada de animais</p>
-                    <p><img src="view/img/icons/icon-academia.png" alt="icon-academia"> Academia</p>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Segurança</h5>
+                            <p class="card-text">Vigilante 24 horas, câmeras de segurança.</p>
+                        </div>
+                    </div>
+                </div>     
+                <div class="col-13 ml-4 mb-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Estacionamento</h5>
+                            <p class="card-text">Estacionamento exclusivo para os clientes.</p>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-13 ml-4 mb-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Piscina</h5>
+                            <p class="card-text">Possuindo piscina interna e externa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ml-5">
+                <div class="col-13 ml-4 mb-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Animais</h5>
+                            <p class="card-text">Permitida a entrada de animais.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-13 ml-4 mb-5">
+                    <div class="card" style="width: 18rem;">
+                       <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Academia</h5>
+                            <p class="card-text">Disponibiliza de aparelhos para exercício físico.</p>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-13 ml-4 mb-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">Playground</h5>
+                            <p class="card-text">Lugar para as crianças brincarem.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--Fim dos Detalhes sobre o hotel-->
-        </div>
+    </div>
 
-        <!--Rodapé-->
+        <!--Footer-->
         <footer class="page-footer font-small blue-grey lighten-5">
-            <div style="background-color: #21d192;">
+            <div style="background-color: #0099ff;">
                 <div class="container">
                     <div class="row py-4 d-flex align-items-center">
                         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
@@ -158,7 +175,8 @@ Página principal do hotel
                     <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                         <h6 class="text-uppercase font-weight-bold">ControlHotel</h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in tellus nisi. Mauris at mauris imperdiet, efficitur turpis sit amet.</p>
+                        <p>O Hotel ControHotel está localizado na cidade de Campo Grande - MS, 
+                        hotel que está a 30 anos no mercado de hotelaria</p>
                     </div>
 
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -169,13 +187,12 @@ Página principal do hotel
                         <p>
                             <i class="fa fa-envelope mr-3"></i> informacoes@controlhotel.com</p>
                         <p>
-                            <i class="fa fa-phone mr-3"></i> + 55 67 9999 999</p>
+                            <i class="fa fa-phone mr-3"></i> + 55 67 9 9699 7867</p>
                         <p>
-                            <i class="fa fa-print mr-3"></i> + 55 67 9999 999</p>
+                            <i class="fa fa-print mr-3"></i> + 55 67 9 9275 4425</p>
                     </div>
                 </div>
             </div>
-
             <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
                 <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> meninassuperpoderosas.com</a>
             </div>

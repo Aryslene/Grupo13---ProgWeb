@@ -1,3 +1,10 @@
+<?php
+if(isset($_SESSION["idCliente"]) && isset($_SESSION["email"]) ) {
+    $idCliente = $_SESSION["idCliente"];
+    $nome = $_SESSION["email"];
+    header('location:?funcao=home');
+}
+?>
 <!DOCTYPE html>
 <!--
 *Esse documento faz parte de uma aplicação desenvolvida na matéria de ProgWeb-2018/2 na FACOM, 
@@ -8,56 +15,50 @@
 *@author Danielle L. M. G. Benites - Acadêmica de Engenharia de Software
 *@author Walquiria L. Lopes - Acadêmica de Engenharia de Software
 *Framework Bootstrap 4
+
+Página principal do hotel
 -->
-
-
-<html>
-  <meta charset="utf-8" />
-  <title>ControlHotel</title>
-  <head>
-
-  <link href="login.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  </head>
-<body id="LoginForm">
-<div class="container">
-<h1 class="form-heading">Control Hotel Login</h1>
-<div class="login-form">
-<div class="main-div">
-  <!-- Aqui encontra-se os locais para entrada de login e senha -->
-    <div class="panel">
-   <h2>Seja bem-vindo.</h2>
-   <p>Por favor, entre com seu email e senha</p>
-   </div>
-  <!-- Formulário do login e senha -->
-    <form id="Login">
-
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-
-        </div>
-
-        <div class="form-group">
-
-            <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
-
-        </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-        <div ckass="naopossuicadastro"><p>Não possui cadastro?</p></div>
-        <button type="submit" class="btn btn-primary">Novo Cadastro</button>
-
-    </form>
-    </div>
-
-</div></div>
-            <div class="footer-copyright">© 2018 Copyright:
-                <a class="linkPoderosas" href="https://mdbootstrap.com/education/bootstrap/"> meninassuperpoderosas.com</a>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title>ControlHotel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="view/css/stylelogin.css" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+    </head>
+        
+    <body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="fadeIn first">
+            <img src="view/img/logoHotel.png" id="icon" alt="User Icon" />
             </div>
-
-</body>
+            <form id="Login" action="?funcao=efetuarLogin<?php if(isset($_GET["tipoQuarto"])){ echo "&tipoQuarto=".$_GET["tipoQuarto"].""; } ?>" method="post">
+                <?php
+                    if(isset($_GET['deucerto'])){
+                        $deucerto = $_GET['deucerto'];
+                            if($deucerto == 'a'){
+                                $msg = $_GET['msg'];
+                                echo "<h3>".$msg."</h3>";
+                            }
+                        }
+                ?> 
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                </div>                
+                <input type="submit" class="fadeIn fourth" name="logado" value="Login">
+            </form>
+            <!--Não possui Cadastro-->
+            <div id="formFooter">
+                <a href="?funcao=telaCadastroCliente" class="underlineHover">Novo Cadastro</a> 
+            </div>
+        </div>
+    </div>    
+    </body>
 </html>

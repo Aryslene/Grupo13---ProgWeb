@@ -16,11 +16,10 @@ Página para cadastrar cliente
         <meta charset="utf-8" />
         <title>ControlHotel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="view/css/style.css" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
     </head>
 
     <body>
@@ -44,7 +43,7 @@ Página para cadastrar cliente
             <!--Fim da navbar -->   
 
             <!--Título da página e uma explicação -->
-            <h1>Reservar Quarto</h1>
+            <h1>Cadastro de Cliente</h1>
                 <p>Hotel na cidade de Campo Grande - Mato Grosso do Sul</p> 
             <!--Final do título -->
         </div>
@@ -97,7 +96,7 @@ Página para cadastrar cliente
                                 </select>
                             </div>
                         </div>      
-                        <!--Endereço -->  
+                        <!--Informações do país -->  
                         <div class="form-row mt-3">
                             <div class="form-group col-md-3">
                                 <label for="labelPais">País</label>
@@ -130,7 +129,7 @@ Página para cadastrar cliente
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="labelSenha">Senha</label>
-                                <input type="password" class="form-control" name="senha" id="inputSenha" placeholder="Senha" maxlength="8" minlength="4" required>
+                                <input type="password" class="form-control" name="senha" id="inputSenha" placeholder="Senha" minlength="4" required>
                         </div>            
                         <button type="submit" class="btn btn-primary" name="cadastrado">Cadastrar</button>
                     </form>                      
