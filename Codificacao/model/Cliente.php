@@ -23,8 +23,8 @@ class Cliente{
     private $email;
     private $senha;
     
-    public function __construct(string $id="",string $nome, string $genero, string $telefone, string $dataNasc,string $pais, string $estado, string $cidade, string $endereco, string $email, string $senha){
-        $this->id = $id;
+    public function __construct(string $idCliente="",string $nome, string $genero, string $telefone, string $dataNasc,string $pais, string $estado, string $cidade, string $endereco, string $email, string $senha){
+        $this->idCliente = $idCliente;
         $this->nome = $nome;
         $this->genero = $genero;
         $this->telefone = $telefone;
@@ -38,8 +38,8 @@ class Cliente{
     }
 
     /*Getters e Setters*/
-    public function getId():string{
-        return $this->id;
+    public function getIdCliente():string{
+        return $this->idCliente;
     }
 
     public function getNome():string{

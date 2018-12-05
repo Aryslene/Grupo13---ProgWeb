@@ -10,48 +10,70 @@
 
 -->Classe Reserva
 */
+
+require_once("Quarto.php");
+
+
 class Reserva{
+    private $idReserva;
     private $dataEntrada;
     private $dataSaida;
-    private $id;
-    private $tipoQuarto;
-    private $idCliente;
+    private $codCliente;
+    private $codQuarto;
+    private $objQuarto;
     
-    public function __construct(string $id="",date $dataEntrada,
-    date $dataSaida, string $tipoQuarto){
-        $this->id = $id;
+    public function __construct(string $idReserva="",string $dataEntrada,
+    string $dataSaida, int $codCliente, int $codQuarto){
+        $this->idReserva = $idReserva;
         $this->dataEntrada = $dataEntrada;
         $this->dataSaida = $dataSaida;
-        $this->tipoQuarto = $tipoQuarto;
+        $this->codCliente = $codCliente;
+        $this->codQuarto = $codQuarto;
     }
 
     /*Getters e Setters*/
-    public function getId():string{
-        return $this->id;
+    public function getIdReserva():string{
+        return $this->idReserva;
     }
 
-    public function getDataEntrada():date{
+    public function getDataEntrada():string{
         return $this->dataEntrada;
     }
         
-    public function setDataEntrada(date $dataEntrada){
+    public function setDataEntrada(string $dataEntrada){
         $this->dataEntrada= $dataEntrada;
     }
 
-    public function getDataSaida():date{
+    public function getDataSaida():string{
         return $this->dataSaida;
     }
         
-    public function setDataSaida(date $dataSaida){
+    public function setDataSaida(string $dataSaida){
         $this->dataSaida= $dataSaida;
     }
 
-    public function getTipoQuarto():string{
-        return $this->tipoQuarto;
+    public function getCodCliente():int{
+        return $this->codCliente;
     }
         
-    public function setTipoQuarto(string $tipoQuarto){
-       $this->tipoQuarto = $tipoQuarto;
+    public function setCodCliente(int $codCliente){
+       $this->codCliente = $codCliente;
+    }
+
+    public function getCodQuarto():int{
+        return $this->codQuarto;
+    }
+        
+    public function setCodQuarto(int $codQuarto){
+       $this->codQuarto = $codQuarto;
+    }
+
+    public function setObjQuarto(Quarto $quarto){
+        $this->objQuarto = $quarto;
+    }
+
+    public function getObjQuarto():Quarto{
+        return $this->objQuarto;
     }
 }
 ?>

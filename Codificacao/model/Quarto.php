@@ -11,47 +11,47 @@
 -->Classe Quarto
 */
 class Quarto{
-    private $id;
+    private $idQuarto;
     private $valorDiaria;
     private $taxaCancelamento;
     private $qtdOcupacao;
     private $tipoQuarto;
     
-    public function __construct(string $id="",double $valorDiaria,
-    double $taxaCancelamento,int $qtdOcupacao, string $tipoQuarto){
-        $this->id = $id;
-        $this->valorDiaria = $valorDiaria;
-        $this->taxaCancelamento = $taxaCancelamento;
-        $this->qtdOcupacao = $qtdOcupacao;
+    public function __construct(string $idQuarto="",  string $tipoQuarto,
+    float $valorDiaria,int $qtdOcupacao, float $taxaCancelamento){
+        $this->idQuarto = $idQuarto;
         $this->tipoQuarto = $tipoQuarto;
+        $this->valorDiaria = $valorDiaria;
+        $this->qtdOcupacao = $qtdOcupacao;
+        $this->taxaCancelamento = $taxaCancelamento;
     }
 
     /*Getters e Setters*/
-    public function getId():string{
-        return $this->id;
+    public function getIdQuarto():string{
+        return $this->idQuarto;
     }
 
-    public function getValorDiaria():double{
-        return $this->dataEntrada;
+    public function getValorDiaria():float{
+        return $this->valorDiaria;
     }
         
-    public function setValorDiaria(double $valorDiaria){
+    public function setValorDiaria(float $valorDiaria){
         $this->valorDiaria = $valorDiaria;
     }
 
-    public function getTaxaCancelamento():double{
+    public function getTaxaCancelamento():float{
         return $this->taxaCancelamento;
     }
         
-    public function setTaxaCancelamento(double $taxaCancelamento){
+    public function setTaxaCancelamento(float $taxaCancelamento){
         $this->taxaCancelamento= $taxaCancelamento;
     }
 
-    public function getqtdOcupacao():int{
+    public function getQtdOcupacao():int{
         return $this->qtdOcupacao;
     }
         
-    public function setqtdOcupacao(int $qtdOcupacao){
+    public function setQtdOcupacao(int $qtdOcupacao){
         $this->qtdOcupacao = $qtdOcupacao;
     }
 

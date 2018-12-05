@@ -18,35 +18,37 @@ abstract class AbstractFactory{
 
     public function __construct() {
         try {
-            $this->db = new PDO("sqlite:model/bd/ControlHotel.sqlite");
+            $this->db = new PDO("sqlite:model/bd/controlhotel.sqlite");
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
             echo $exception->getMessage();
         } catch (Exception $exception) {
             echo $exception->getMessage();
         }
-    /*  try {
-            $usariodb = "root";
-            $senhadb = "";
-            $servidor = "localhost";
-            $db = "controlhotel";
-            $conexao = mysqli_connect($servidor,$usariodb,$senhadb);   
-        } catch (Exception $exception) {
-            echo $exception->getMessage();
-        }*/
-
     }
-    abstract public function reservarQuarto();
-    abstract public function listarClientes(): array;
-    abstract public function salvarCliente($obj);
+    /*Funções abstratas*/
+    /*Listas*/
+    abstract public function listarReservas($codigoCliente): array;
+    abstract public function listarQuartos($idQuarto): array;
+    //abstract public function listarClientes(): array;
+    /*Buscas*/
+    abstract public function buscarQuartoPorId(int $idQuarto): array;
+    abstract public function buscarReserva($idReserva): array;
+    /*Salvar no bd*/
+    abstract public function reservarQuarto($novaReserva);
+    abstract public function salvarCliente($client);
     abstract public function efetuarLogin($email,$senha): array;
-    /*abstract public function buscarIdCliente($param): array;*/
-    
+    /*Atualizar dados*/
+    abstract public function atualizarReserva($reserva);
+    /*Excluir reserva*/
+    abstract public function excluirReserva($reserv);
+
+    /*Função que pega o resultado de qualquer pesquisa no banco de dados e transforma em uma classe abstrada
+    instanciando então um objeto daquele tipo---Função retirada dos exercícios em sala de aula*/    
     protected function queryRowsToListOfObjects(PDOStatement $result, $nameObject): array {
         $list = array();
         $r = $result->fetchAll(PDO::FETCH_NUM);
         foreach ($r as $row) {
-            //unset($row[0]); essa linha foi comentada pois ignorava o id do objeto
             $ref = new ReflectionClass($nameObject);
             $list[] = $ref->newInstanceArgs($row);
         }
