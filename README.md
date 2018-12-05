@@ -8,7 +8,7 @@ Integrantes:
 - Danielle: codificaçao e analise 
 
 Tecnologias:
-- Banco de Dados: Postgres
+- Banco de Dados: SQLite
 - Codificação: PHP
 - Bootstrap 3 e 4
 
