@@ -42,6 +42,7 @@ class HotelFactory extends AbstractFactory{
         }
         return $result;
     }
+    
     /*Função que veio da classe AbstractFactory utilizada para listar os quartos*/
     public function listarQuartos($idQuarto): array {
 		$sql = "SELECT * FROM Quarto WHERE idQuarto='".$idQuarto."' ";
@@ -135,6 +136,7 @@ class HotelFactory extends AbstractFactory{
 		}
 		return $resultObject;
     }
+
     /* Função utilizada para...*/
     public function getCliente($param): Cliente {
         $sql = "SELECT * FROM Cliente WHERE idCliente='" . $param . "'";
@@ -167,6 +169,7 @@ class HotelFactory extends AbstractFactory{
             $resultObject = array();
         }
     }
+
     /*Função que veio da classe AbstractFactory utilizada para listar os quartos*/
     public function buscarQuartoPorId(int $idQuarto): array{
         $sql = "SELECT * FROM Quarto WHERE idQuarto ='". $idQuarto. "'";
@@ -232,7 +235,7 @@ class HotelFactory extends AbstractFactory{
 				$result = false;
 			}
 			return $result;
-	    }
+	}
     
     /*Função que veio da classe AbstractFactory utilizada para atualizar os dados da reserva no banco de dados*/
     public function atualizarReserva($reserva){
@@ -256,22 +259,7 @@ class HotelFactory extends AbstractFactory{
             }
             return $result;        
     }
-
-    /*Função que veio da classe AbstractFactory utilizada para realizar a listagem dos clientes */
- /*   public function listarClientes(): array {
-		$sql = "SELECT * FROM Cliente";
-		try {
-			$resultRows = $this->db->query($sql);
-			if (!($resultRows instanceof PDOStatement)) {
-				throw new Exception("Tem erro no seu SQL!<br> '" . $sql . "'");
-			}
-			$resultObject = $this->queryRowsToListOfObjects($resultRows, "Cliente");
-			return $resultObject;
-		} catch (Exception $exc) {
-			echo $exc->getMessage();
-			$resultObject = array();
-		}
-    }*/    
+   
 }
 
 ?>
