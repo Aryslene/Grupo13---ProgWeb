@@ -10,7 +10,7 @@ CREATE TABLE Cliente(
   endereco varchar (40),
   email varchar(40) NOT NULL,
   senha varchar(8) NOT NULL
-)
+);
 
 CREATE TABLE Quarto(
   idQuarto INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
@@ -18,7 +18,7 @@ CREATE TABLE Quarto(
   valorDiaria double NOT NULL,
   qtdOcupacao int NOT NULL,
   taxaCancelamento double
-)
+);
 
 CREATE TABLE Reserva(
   idReserva INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
@@ -26,9 +26,9 @@ CREATE TABLE Reserva(
   dataSaida date NOT NULL,
   codCliente int,
   codQuarto int,
-  FOREIGN KEY(codCliente) REFERENCES Cliente (idCliente) on delete restrict on update cascade, 
-  FOREIGN KEY(codQuarto) REFERENCES Quarto (idQuarto) on delete restrict on update cascade
-)
+FOREIGN KEY(codQuarto) REFERENCES Quarto (idQuarto) on delete restrict on update cascade,
+  FOREIGN KEY(codCliente) REFERENCES Cliente (idCliente) on delete restrict on update cascade 
+);
 
 INSERT INTO Quarto(tipoQuarto, valorDiaria, qtdOcupacao, taxaCancelamento) 
 VALUES('suitedupla',130.0,2,10.0);
