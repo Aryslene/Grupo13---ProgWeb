@@ -56,7 +56,9 @@ require("header.php");
                         ?>
                             <div class="card col-md-5" style="float:left;  margin-left: 10px; margin-bottom: 10px;;">
                                 <div class="card-body">
-                                    <h5 class="card-title">Reserva #<?php echo $reserva->getIdReserva(); ?> - Informações do Quarto</h5>
+                                    <h5 class="card-title">Reserva - Informações do Quarto</h5>
+                                    <p class="card-text">Data de Entrada: <?php echo $reserva->getdataEntrada(); ?></p>
+                                    <p class="card-text">Data de Saída: <?php echo $reserva->getdataSaida(); ?></p>
                                     <p class="card-text">Tipo de Quarto: <?php 
                                     $tipoQuarto = $q->getTipoQuarto();
                                     switch($tipoQuarto){

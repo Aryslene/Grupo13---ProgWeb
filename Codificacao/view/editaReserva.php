@@ -1,12 +1,10 @@
 <?php
+/*Verifica se o usuário está logado no sistema, para evitar que tente entrar na página*/
 if ( !isset($_SESSION["idCliente"]) and !isset($_SESSION["email"]) ) {
-    //Destrói
     session_destroy();
-    //Limpa
     unset ($_SESSION["idCliente"]);
     unset ($_SESSION["email"]);  
     unset ($_SESSION["senha"])   ;
-    //Redireciona para a página de autenticação
     header('location:?funcao=telaLogin');
 }else{
     $codCliente = $_SESSION["idCliente"];

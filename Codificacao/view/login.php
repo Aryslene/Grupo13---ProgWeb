@@ -1,4 +1,5 @@
 <?php
+/*Verifica se o usuário está logado no sistema, para evitar que tente entrar na página*/
 if(isset($_SESSION["idCliente"]) && isset($_SESSION["email"]) ) {
     $idCliente = $_SESSION["idCliente"];
     $nome = $_SESSION["email"];
@@ -36,13 +37,14 @@ Página principal do hotel
             <div class="fadeIn first">
             <img src="view/img/logoHotel.png" id="icon" alt="User Icon" />
             </div>
+            <h3>ControlHotel</h3>
             <form id="Login" action="?funcao=efetuarLogin<?php if(isset($_GET["tipoQuarto"])){ echo "&tipoQuarto=".$_GET["tipoQuarto"].""; } ?>" method="post">
                 <?php
                     if(isset($_GET['deucerto'])){
                         $deucerto = $_GET['deucerto'];
                             if($deucerto == 'a'){
                                 $msg = $_GET['msg'];
-                                echo "<h3>".$msg."</h3>";
+                                echo "<p>".$msg."</p>";
                             }
                         }
                 ?> 
