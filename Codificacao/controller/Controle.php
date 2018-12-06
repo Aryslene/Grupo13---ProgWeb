@@ -92,7 +92,7 @@ class Controle{
         }
     }
     
-    /*Função que .....??? */ 
+    /*Função que set um cliente na sessão */ 
     public function setCliente(){
         session_start();
         if(isset($_SESSION["idCliente"])){
@@ -101,6 +101,7 @@ class Controle{
             $this->cliente = null;
         }
     }
+
     /*Função que leva para a PÁGINA principal do hotel*/
     public function home(){
         $cliente = $this->cliente;
@@ -137,7 +138,7 @@ class Controle{
         require 'view/cadastroCliente.php';
     }
 
-    /*Função que leva para a PÁGINA de avisos --APENAS PARA TESTE DO BANCO DE DADOS --*/
+    /*Função que leva para a PÁGINA de avisos*/
 	public function telaAvisos() {
         $cliente = $this->cliente;
         require 'view/avisos.php';
@@ -212,13 +213,10 @@ class Controle{
     public function sairLogin(){
         session_start();
         if ( isset($_SESSION["idCliente"]) and isset($_SESSION["email"]) ) {
-            //Destrói
             session_destroy();
-            //Limpa
             unset ($_SESSION["idCliente"]);
             unset ($_SESSION["email"]);  
             unset ($_SESSION["senha"])   ;
-            //Redireciona para a página de autenticação
             header('location:?funcao=telaHome');
         }else{
             header('location:?funcao=telaHome');
